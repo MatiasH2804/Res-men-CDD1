@@ -1667,6 +1667,205 @@ print(resto)</section>
                         </tbody>
                     </table>
                 </div>
+<h3 style="font-size: 16px; color: var(--primary-color); margin-top: 40px; margin-bottom: 10px;">Problemas y Resumen: Media, Mediana, Rango, Cuartiles e IQR</h3>
+                
+                <p>La idea general es analizar una lista de datos numéricos para saber:</p>
+                <ol style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Cuál es un valor representativo</li>
+                    <li>Qué tan dispersos están los datos</li>
+                    <li>Si existen valores raros o extremos</li>
+                </ol>
+
+                <p><strong>Ejemplo base:</strong></p>
+                <pre><code>tiempos_estudio = [2, 4, 3, 5, 1, 6, 2, 8, 3, 4, 20]</code></pre>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Concepto</th>
+                                <th>Qué mide</th>
+                                <th>Fórmula o idea</th>
+                                <th>Ejemplo de interpretación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Media</strong></td>
+                                <td>Promedio general</td>
+                                <td>$$\bar{x}=\frac{x_1+x_2+\cdots+x_n}{n}$$</td>
+                                <td>Si la media es 5.27 horas, ese es el promedio de estudio</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mediana</strong></td>
+                                <td>Valor central</td>
+                                <td>Ordenar los datos y buscar el centro</td>
+                                <td>Si la mediana es 4, la mitad estudió 4 horas o menos</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mínimo</strong></td>
+                                <td>Valor más bajo</td>
+                                <td>Primer dato ordenado</td>
+                                <td>El menor tiempo registrado</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Máximo</strong></td>
+                                <td>Valor más alto</td>
+                                <td>Último dato ordenado</td>
+                                <td>El mayor tiempo registrado</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rango</strong></td>
+                                <td>Amplitud total</td>
+                                <td>$$Rango = Máximo - Mínimo$$</td>
+                                <td>Indica cuánto se separan los extremos</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Q1</strong></td>
+                                <td>Primer cuartil</td>
+                                <td>Mediana de la mitad inferior</td>
+                                <td>El 25% de los datos queda por debajo</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Q2</strong></td>
+                                <td>Segundo cuartil</td>
+                                <td>Es la mediana</td>
+                                <td>El 50% queda por debajo</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Q3</strong></td>
+                                <td>Tercer cuartil</td>
+                                <td>Mediana de la mitad superior</td>
+                                <td>El 75% queda por debajo</td>
+                            </tr>
+                            <tr>
+                                <td><strong>IQR</strong></td>
+                                <td>Rango intercuartílico</td>
+                                <td>$$IQR = Q3 - Q1$$</td>
+                                <td>Mide la dispersión del 50% central</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Outlier</strong></td>
+                                <td>Valor atípico</td>
+                                <td>Está fuera de los límites del IQR</td>
+                                <td>Puede ser un dato raro o extremo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 style="font-size: 15px; color: var(--text-main); margin-top: 20px;">Cálculo Básico en Python</h4>
+                <pre><code># Ordenamos Datos
+tiempos_estudio = [2, 4, 3, 5, 1, 6, 2, 8, 3, 4, 20]
+
+datos = tiempos_estudio.copy()
+datos.sort()
+
+print("Datos ordenados:", datos)
+
+# Calculamos media
+suma = sum(datos)
+cantidad = len(datos)
+
+media = suma / cantidad
+
+print("Media:", media)</code></pre>
+
+                <h4 style="font-size: 15px; color: var(--text-main); margin-top: 20px;">Cálculo de la Mediana según cantidad de datos</h4>
+                <div class="table-responsive">
+                    <table style="max-width: 800px;">
+                        <thead>
+                            <tr>
+                                <th>Caso</th>
+                                <th>Condición</th>
+                                <th>Fórmula en Python</th>
+                                <th>Qué se hace</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Cantidad impar</strong></td>
+                                <td><code>n % 2 == 1</code></td>
+                                <td><code>datos[n // 2]</code></td>
+                                <td>Se toma el dato del medio</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cantidad par</strong></td>
+                                <td><code>n % 2 == 0</code></td>
+                                <td><code>(datos[n // 2 - 1] + datos[n // 2]) / 2</code></td>
+                                <td>Se promedian los dos datos centrales</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 style="font-size: 15px; color: var(--text-main); margin-top: 20px;">Código Completo: Análisis Estadístico con Outliers</h4>
+                <pre><code>tiempos_estudio = [2, 4, 3, 5, 1, 6, 2, 8, 3, 4, 20]
+
+datos = tiempos_estudio.copy()
+datos.sort()
+
+print("Datos ordenados:", datos)
+
+media = sum(datos) / len(datos)
+
+minimo = datos[0]
+maximo = datos[-1]
+rango = maximo - minimo
+
+n = len(datos)
+
+# Cálculo de Q2 (Mediana)
+if n % 2 == 0:
+    Q2 = (datos[n // 2 - 1] + datos[n // 2]) / 2
+else:
+    Q2 = datos[n // 2]
+
+# Separación de mitades
+if n % 2 == 0:
+    mitad_inferior = datos[:n // 2]
+    mitad_superior = datos[n // 2:]
+else:
+    mitad_inferior = datos[:n // 2]
+    mitad_superior = datos[n // 2 + 1:]
+
+# Cálculo de Q1
+n1 = len(mitad_inferior)
+if n1 % 2 == 0:
+    Q1 = (mitad_inferior[n1 // 2 - 1] + mitad_inferior[n1 // 2]) / 2
+else:
+    Q1 = mitad_inferior[n1 // 2]
+
+# Cálculo de Q3
+n2 = len(mitad_superior)
+if n2 % 2 == 0:
+    Q3 = (mitad_superior[n2 // 2 - 1] + mitad_superior[n2 // 2]) / 2
+else:
+    Q3 = mitad_superior[n2 // 2]
+
+# Rango Intercuartílico y Outliers
+IQR = Q3 - Q1
+
+limite_inferior = Q1 - 1.5 * IQR
+limite_superior = Q3 + 1.5 * IQR
+
+outliers = []
+
+for valor in datos:
+    if valor < limite_inferior or valor > limite_superior:
+        outliers.append(valor)
+
+print("Media:", media)
+print("Mínimo:", minimo)
+print("Máximo:", maximo)
+print("Rango:", rango)
+print("Q1:", Q1)
+print("Q2:", Q2)
+print("Q3:", Q3)
+print("IQR:", IQR)
+print("Límite inferior:", limite_inferior)
+print("Límite superior:", limite_superior)
+print("Outliers:", outliers)</code></pre>
             </section>
         </main>
     </div>
