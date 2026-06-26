@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen de Ciencia de Datos</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ciencia de Datos - Resumen Académico</h1>
+        </header>
+        
+        <main>
+            <section class="content-section">
+                <h2>Función</h2>
+                <p>Es un bloque de código que realiza una tarea específica. Tiene un nombre que la identifica, puede recibir datos de entrada entre paréntesis y, en muchos casos, devolver un resultado.</p>
+                
+                <p>En Python existen muchas <strong>funciones integradas</strong> que podemos usar directamente, como:</p>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Función</th>
+                                <th>Explicación (4 palabras)</th>
+                                <th>Ejemplo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>print()</code></td>
+                                <td>Muestra datos en pantalla</td>
+                                <td><code>print("Hola mundo")</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>len()</code></td>
+                                <td>Cuenta elementos de objeto</td>
+                                <td><code>len([1,2,3]) &rarr; 3</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>type()</code></td>
+                                <td>Devuelve tipo de dato</td>
+                                <td><code>type(10) &rarr; int</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>range()</code></td>
+                                <td>Genera secuencia de números</td>
+                                <td><code>range(0,5)</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>sum()</code></td>
+                                <td>Suma elementos de iterable</td>
+                                <td><code>sum([1,2,3]) &rarr; 6</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>max()</code></td>
+                                <td>Devuelve valor máximo iterable</td>
+                                <td><code>max([1,5,2]) &rarr; 5</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>min()</code></td>
+                                <td>Devuelve valor mínimo iterable</td>
+                                <td><code>min([1,5,2]) &rarr; 1</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>input()</code></td>
+                                <td>Lee datos desde usuario</td>
+                                <td><code>input("Nombre: ")</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>int()</code></td>
+                                <td>Convierte a número entero</td>
+                                <td><code>int("5") &rarr; 5</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>str()</code></td>
+                                <td>Convierte a texto string</td>
+                                <td><code>str(10) &rarr; "10"</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>list()</code></td>
+                                <td>Convierte iterable en lista</td>
+                                <td><code>list("abc") &rarr; ['a','b','c']</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>sorted()</code></td>
+                                <td>Ordena elementos de iterable</td>
+                                <td><code>sorted([3,1,2]) &rarr; [1,2,3]</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+<section class="content-section">
+                <h2>Identificadores</h2>
+                <p>Un identificador es el nombre que se le da a una variable y debe ser único dentro del programa.</p>
+                
+                <ul>
+                    <li>Solo puede usar letras, números y guion bajo (<code>_</code>).</li>
+                    <li>No puede empezar con un número.</li>
+                    <li>No permite símbolos especiales (como <code>-</code>, <code>@</code>, <code>#</code>).</li>
+                    <li>Es sensible a mayúsculas (<code>edad</code> &ne; <code>Edad</code>).</li>
+                    <li>No puede ser una palabra reservada (<code>if</code>, <code>for</code>, <code>print</code>, etc.).</li>
+                </ul>
+
+                <pre><code># Ejemplo de sensibilidad a mayúsculas
+edad = 25
+Edad = 30   # Distinta variable</code></pre>
+<section class="content-section">
+                <h2>Tipos de datos</h2>
+                <p>Los <strong>tipos de datos</strong> más comunes son:</p>
+                
+                <ul>
+                    <li><strong>Números enteros (<code>int</code>):</strong> como <code>25</code>, <code>0</code>, <code>-5</code>.</li>
+                    <li><strong>Números decimales o flotantes (<code>float</code>):</strong> como <code>1.71</code>, <code>-2.5</code>, <code>0.001</code>.</li>
+                    <li><strong>Cadenas de texto o strings (<code>str</code>):</strong> como <code>"Ana"</code>, <code>"Santa Fe"</code>, <code>"CP 3000"</code>.</li>
+                    <li><strong>Booleanos (<code>bool</code>):</strong> sólo pueden tomar dos valores, <code>True</code> (verdadero) o <code>False</code> (falso).</li>
+                </ul>
+
+                
+
+                <p>Los enteros representan números sin decimales, mientras que los flotantes representan números con decimales; ambos se usan para realizar operaciones matemáticas.</p>
+
+                <p>Las cadenas de texto pueden contener letras, números y otros caracteres. Se escriben entre <strong>comillas</strong> simples o dobles, siempre usando el mismo tipo de comilla para abrir y cerrar la cadena. Por ejemplo, <code>"Ana"</code> y <code>'Ana'</code> son formas equivalentes de definir la misma cadena.</p>
+
+                <p>Aunque una cadena puede contener números, como <code>"2025"</code>, el sistema siempre las interpreta como <strong>texto</strong>, por lo que no se pueden usar directamente en operaciones matemáticas.</p>
+
+                <p>Los booleanos son útiles para representar condiciones de verdadero o falso y para guardar datos que son de tipo <strong>Sí/No</strong>. Por ejemplo, <code>es_mayor = True</code> indica que una persona es mayor de edad, mientras que <code>usuario_registrado = False</code> señala que un usuario no está registrado en un sistema.</p>
+<section class="content-section">
+                <h2>Operadores</h2>
+                <p>Cuando escribimos <code>edad_actual = 20</code> estamos usando el <strong>operador de asignación</strong> <code>=</code> para asignar el número <code>20</code> a la variable <code>edad_actual</code>. Cuando se hace una asignación, el valor queda guardado en una posición de la memoria.</p>
+                
+                <p>Los operadores también permiten usar lo que guardamos en las variables para obtener otros resultados. En el ejemplo anterior, usamos el operador aritmético <code>+</code> para sumarle 5 al valor guardado en la variable <code>edad_actual</code>, y el resultado de esa operación también lo guardamos en una variable <code>edad_futura</code>, haciendo otra asignación con el operador <code>=</code>.</p>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Operador</th>
+                                <th>Tipo</th>
+                                <th>Descripción</th>
+                                <th>Ejemplo</th>
+                                <th>Resultado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>+</code></td>
+                                <td>Aritmético</td>
+                                <td>Suma</td>
+                                <td><code>7 + 2</code></td>
+                                <td><code>9</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>-</code></td>
+                                <td>Aritmético</td>
+                                <td>Resta</td>
+                                <td><code>7 - 2</code></td>
+                                <td><code>5</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>*</code></td>
+                                <td>Aritmético</td>
+                                <td>Multiplicación</td>
+                                <td><code>7 * 2</code></td>
+                                <td><code>14</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>/</code></td>
+                                <td>Aritmético</td>
+                                <td>División real</td>
+                                <td><code>7 / 2</code></td>
+                                <td><code>3.5</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>//</code></td>
+                                <td>Aritmético</td>
+                                <td>División entera</td>
+                                <td><code>7 // 2</code></td>
+                                <td><code>3</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>%</code></td>
+                                <td>Aritmético</td>
+                                <td>Resto de división</td>
+                                <td><code>7 % 2</code></td>
+                                <td><code>1</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>**</code></td>
+                                <td>Aritmético</td>
+                                <td>Potencia</td>
+                                <td><code>7 ** 2</code></td>
+                                <td><code>49</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>=</code></td>
+                                <td>Asignación</td>
+                                <td>Asigna valor a variable</td>
+                                <td><code>x = 5</code></td>
+                                <td><code>x vale 5</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>+=</code></td>
+                                <td>Asignación</td>
+                                <td>Suma y asigna</td>
+                                <td><code>x += 2</code></td>
+                                <td><code>x = x + 2</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>-=</code></td>
+                                <td>Asignación</td>
+                                <td>Resta y asigna</td>
+                                <td><code>x -= 2</code></td>
+                                <td><code>x = x - 2</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>==</code></td>
+                                <td>Comparación</td>
+                                <td>Igualdad</td>
+                                <td><code>5 == 5</code></td>
+                                <td><code>True</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>!=</code></td>
+                                <td>Comparación</td>
+                                <td>Distinto de</td>
+                                <td><code>5 != 3</code></td>
+                                <td><code>True</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>&gt;</code></td>
+                                <td>Comparación</td>
+                                <td>Mayor que</td>
+                                <td><code>5 &gt; 3</code></td>
+                                <td><code>True</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;</code></td>
+                                <td>Comparación</td>
+                                <td>Menor que</td>
+                                <td><code>5 &lt; 3</code></td>
+                                <td><code>False</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>&gt;=</code></td>
+                                <td>Comparación</td>
+                                <td>Mayor o igual</td>
+                                <td><code>5 &gt;= 5</code></td>
+                                <td><code>True</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;=</code></td>
+                                <td>Comparación</td>
+                                <td>Menor o igual</td>
+                                <td><code>5 &lt;= 3</code></td>
+                                <td><code>False</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>and</code></td>
+                                <td>Lógico</td>
+                                <td>Ambas condiciones verdaderas</td>
+                                <td><code>True and False</code></td>
+                                <td><code>False</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>or</code></td>
+                                <td>Lógico</td>
+                                <td>Al menos una verdadera</td>
+                                <td><code>True or False</code></td>
+                                <td><code>True</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>not</code></td>
+                                <td>Lógico</td>
+                                <td>Invierte valor lógico</td>
+                                <td><code>not True</code></td>
+                                <td><code>False</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Como vemos en la tabla, tenemos tres tipos de división: <code>/</code>, <code>//</code> y <code>%</code>.</p>
+                
+                <p>Si recordás, en una división intervienen cuatro componentes principales:</p>
+                <ul>
+                    <li><em>Dividendo</em>: el número a dividir.</li>
+                    <li><em>Divisor</em>: el número por el cual se divide.</li>
+                    <li><em>Cociente</em>: el resultado de la división.</li>
+                    <li><em>Resto o residuo</em>: lo que sobra después de dividir.</li>
+                </ul>
+
+                <p>Para obtener el cociente podemos usar <code>/</code> o <code>//</code> dependiendo del caso, y para el resto <code>%</code>.</p>
+
+                <p>Para verlo, tomemos como ejemplo dividir 7 entre 2. Mirá este código y luego ejecutalo para obtener el resultado:</p>
+
+                <pre><code>dividendo = 7
+divisor = 2
+
+cociente = dividendo / divisor   # 3.5 (división normal)
+cociente_entero = dividendo // divisor  # 3 (división entera)
+resto = dividendo % divisor   # 1 (resto de la división)
+
+print(cociente)
+print(cociente_entero)
+print(resto)</section>
+
+            <section class="content-section">
+                <h2>Ramificación</h2>
+                <p>Se refiere a la capacidad de un programa para <strong>tomar decisiones</strong> y ejecutar diferentes bloques de código según ciertas condiciones. De esta forma, el flujo de ejecución deja de ser lineal y se divide en diferentes caminos dependiendo de valores o condiciones específicas.</p>
+</section>
+
+            <section class="content-section">
+                <h2>Estructuras de control condicionales</h2>
+                <p>El cambio en el flujo de ejecución del programa se logra mediante <strong>estructuras de control</strong>. En el ejemplo usamos <code>if</code> y <code>if-else</code>, que son estructuras de control <strong>condicionales</strong>. Estas estructuras nos permiten introducir la <strong>ramificación</strong> en el programa, lo que hace que el flujo de ejecución se divida y siga diferentes caminos dependiendo de si se cumple o no una <strong>condición</strong>.</p>
+                
+                <p>Una condición es una expresión lógica (como las comparaciones que vimos antes) que se evalúa y devuelve un resultado <strong>booleano</strong>. Decimos que la condición "se cumple" cuando el resultado de la evaluación es <code>True</code> (verdadero) y que "no se cumple" cuando el resultado es <code>False</code> (falso).</p>
+
+                <blockquote>
+                    <p><strong>🧠 Idea clave (bien explicada)</strong></p>
+                    <p>Cuando comparás strings en Python, no compara palabras como humanos, sino que:</p>
+                    <ul>
+                        <li>Compara letra por letra.</li>
+                        <li>De izquierda a derecha.</li>
+                        <li>Usando el valor numérico de cada carácter (ASCII/Unicode).</li>
+                    </ul>
+                    <p><strong>📌 Regla práctica:</strong></p>
+                    <ul>
+                        <li>La primera letra distinta define todo.</li>
+                        <li>Mayúsculas &ne; minúsculas.</li>
+                        <li>Si una palabra es parte de otra &rarr; la más corta es menor.</li>
+                    </ul>
+                </blockquote>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Expresión</th>
+                                <th>¿Qué compara?</th>
+                                <th>Resultado</th>
+                                <th>Por qué</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>"Ana" == "Ana"</code></td>
+                                <td>Igualdad exacta</td>
+                                <td><code>True</code></td>
+                                <td>Son idénticas</td>
+                            </tr>
+                            <tr>
+                                <td><code>"Ana" == "ana"</code></td>
+                                <td>A vs a</td>
+                                <td><code>False</code></td>
+                                <td>Mayúscula &ne; minúscula</td>
+                            </tr>
+                            <tr>
+                                <td><code>"Ana" &lt; "Beto"</code></td>
+                                <td>A vs B</td>
+                                <td><code>True</code></td>
+                                <td>A viene antes que B</td>
+                            </tr>
+                            <tr>
+                                <td><code>"ana" &gt; "Ana"</code></td>
+                                <td>a vs A</td>
+                                <td><code>True</code></td>
+                                <td>minúsculas tienen mayor valor ASCII</td>
+                            </tr>
+                            <tr>
+                                <td><code>"abc" &lt; "abd"</code></td>
+                                <td>c vs d</td>
+                                <td><code>True</code></td>
+                                <td>c es menor que d</td>
+                            </tr>
+                            <tr>
+                                <td><code>"abc" &lt; "abcd"</code></td>
+                                <td>misma base</td>
+                                <td><code>True</code></td>
+                                <td>la más corta es menor</td>
+                            </tr>
+                            <tr>
+                                <td><code>"perro" &gt; "gato"</code></td>
+                                <td>p vs g</td>
+                                <td><code>True</code></td>
+                                <td>p está después de g</td>
+                            </tr>
+                            <tr>
+                                <td><code>"123" &lt; "9"</code></td>
+                                <td>1 vs 9</td>
+                                <td><code>True</code></td>
+                                <td>compara como texto, no como número</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <pre><code>👉 "10" &lt; "2" &rarr; True
+❌ No compara números
+✔ Compara "1" con "2"</code></pre>
+
+                <p>Un operador muy útil para trabajar con cadenas es el operador <code>in</code>, conocido como <strong>operador de pertenencia</strong>.</p>
+                
+                <p>Este operador verifica si una subcadena está contenida dentro de otra cadena. Si la subcadena se encuentra en la cadena, el operador devuelve <code>True</code>; si no, devuelve <code>False</code>.</p>
+</section>
+
+            <section class="content-section">
+                <h2>Operadores lógicos</h2>
+                <p>Podemos combinar varias expresiones lógicas en una sola usando los operadores <code>and</code>, <code>or</code> y <code>not</code>. Estos operadores se llaman <strong>operadores lógicos</strong> y permiten evaluar condiciones y tomar decisiones en función de su resultado.</p>
+                
+                <p>Los operadores lógicos funcionan de la siguiente manera:</p>
+                <ul>
+                    <li><code>and</code>: evalúa si <strong>ambas</strong> condiciones son verdaderas al mismo tiempo.</li>
+                    <li><code>or</code>: evalúa si <strong>al menos una</strong> de las condiciones es verdadera.</li>
+                    <li><code>not</code>: <strong>niega</strong> una condición, es decir, cambia una condición verdadera a falsa y viceversa.</li>
+                </ul>
+           <h3 style="font-size: 15px; color: var(--primary-color); margin-top: 25px; margin-bottom: 10px;">Resumen de Clasificación</h3>
+                <div class="table-responsive">
+                    <table style="max-width: 500px;">
+                        <thead>
+                            <tr>
+                                <th style="width: 40%;">Tipo de Operador</th>
+                                <th style="width: 60%;">Operadores</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Aritméticos</strong></td>
+                                <td><code>**</code>, <code>*</code>, <code>/</code>, <code>//</code>, <code>%</code>, <code>+</code>, <code>-</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Relacionales</strong></td>
+                                <td><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>==</code>, <code>!=</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lógicos</strong></td>
+                                <td><code>not</code>, <code>and</code>, <code>or</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+</section>
+
+            <div class="theme-divider">
+                <h1>Tema 3</h1>
+            </div>
+
+            <section class="content-section">
+                <p><strong>Estadística:</strong> Es la herramienta que nos permite recopilar, organizar y analizar datos para entender mejor la realidad y tomar decisiones basadas en información.</p>
+                <p><strong>Unidades experimentales:</strong> Las unidades experimentales son individuos, objetos, eventos, animales, países, ciudades, etc. que son objeto de estudio en un análisis estadístico.</p>
+<h3 style="font-size: 16px; color: var(--primary-color); margin-top: 25px; margin-bottom: 10px;">Tipos de Datos — Cuadro Sinóptico</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tipo de dato</th>
+                                <th>Subtipo</th>
+                                <th>Definición</th>
+                                <th>Características clave</th>
+                                <th>Ejemplos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="2"><strong>Cuantitativo (numérico)</strong></td>
+                                <td><strong>Discreto</strong></td>
+                                <td>Cuenta cantidades enteras</td>
+                                <td>✔ Valores enteros<br>✔ No admite decimales<br>✔ Resultado de conteo</td>
+                                <td>Materias cursadas (3, 4, 5)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Continuo</strong></td>
+                                <td>Mide magnitudes en un rango</td>
+                                <td>✔ Admite decimales<br>✔ Resultado de medición<br>✔ Puede tomar infinitos valores</td>
+                                <td>Edad (19, 19.5)<br>Rendimiento (8.2, 9.7)</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2"><strong>Cualitativo (categórico)</strong></td>
+                                <td><strong>Nominal</strong></td>
+                                <td>Clasifica sin orden</td>
+                                <td>✔ Categorías sin jerarquía<br>✔ Solo etiquetas<br>✔ No comparables</td>
+                                <td>Usa redes (Sí/No)<br>Transporte (Auto, Bici)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ordinal</strong></td>
+                                <td>Clasifica con orden</td>
+                                <td>✔ Tiene jerarquía<br>✔ Relación de orden<br>✔ No hay distancia numérica</td>
+                                <td>Satisfacción (Baja, Media, Alta)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 25px; margin-bottom: 10px;">Clave Rápida (Comparación)</h3>
+                <div class="table-responsive">
+                    <table style="max-width: 500px;">
+                        <thead>
+                            <tr>
+                                <th>Pregunta clave</th>
+                                <th>Tipo resultante</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>¿Se puede hacer promedio?</td>
+                                <td>Cuantitativo</td>
+                            </tr>
+                            <tr>
+                                <td>¿Es un conteo entero?</td>
+                                <td>Discreto</td>
+                            </tr>
+                            <tr>
+                                <td>¿Es una medición con decimales?</td>
+                                <td>Continuo</td>
+                            </tr>
+                            <tr>
+                                <td>¿Son categorías sin orden?</td>
+                                <td>Nominal</td>
+                            </tr>
+                            <tr>
+                                <td>¿Hay jerarquía (mejor/peor)?</td>
+                                <td>Ordinal</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 25px; margin-bottom: 10px;">Medidas para Datos Cualitativos</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Medida</th>
+                                <th>Nombre técnico</th>
+                                <th>Qué indica</th>
+                                <th>Cómo se calcula</th>
+                                <th>Rango</th>
+                                <th>Suma total</th>
+                                <th>Uso principal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Cantidad</strong></td>
+                                <td>Frecuencia absoluta</td>
+                                <td>Cuántos casos hay en cada categoría</td>
+                                <td>Conteo directo</td>
+                                <td>0 a n</td>
+                                <td>n (total de datos)</td>
+                                <td>Saber cantidad exacta</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Proporción</strong></td>
+                                <td>Frecuencia relativa</td>
+                                <td>Qué parte del total representa cada categoría</td>
+                                <td><code>frecuencia / total</code></td>
+                                <td>0 a 1</td>
+                                <td>1</td>
+                                <td>Comparar categorías</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Porcentaje</strong></td>
+                                <td>Frecuencia relativa (%)</td>
+                                <td>Proporción en escala porcentual</td>
+                                <td><code>proporción × 100</code></td>
+                                <td>0 a 100</td>
+                                <td>100</td>
+                                <td>Interpretación más clara</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-responsive" style="margin-top: 20px;">
+                    <table style="max-width: 650px;">
+                        <thead>
+                            <tr>
+                                <th>Concepto</th>
+                                <th>Responde</th>
+                                <th>Ventaja</th>
+                                <th>Ejemplo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Frecuencia absoluta</td>
+                                <td>¿Cuántos hay?</td>
+                                <td>Valor exacto</td>
+                                <td>25 personas</td>
+                            </tr>
+                            <tr>
+                                <td>Frecuencia relativa</td>
+                                <td>¿Qué proporción?</td>
+                                <td>Permite comparar</td>
+                                <td>0.25</td>
+                            </tr>
+                            <tr>
+                                <td>Porcentaje</td>
+                                <td>¿Qué porcentaje?</td>
+                                <td>Más intuitivo</td>
+                                <td>25%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </section>
+
+            <div class="theme-divider">
+                <h1>Tema 4</h1>
+            </div>
+
+            <section class="content-section">
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-bottom: 15px;">Listas en Python — Cuadro General</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Concepto</th>
+                                <th>Definición</th>
+                                <th>Ejemplo</th>
+                                <th>Resultado / Interpretación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Lista</strong></td>
+                                <td>Estructura que guarda varios valores en un solo lugar</td>
+                                <td><code>ventas = [320, 280, 310, 290]</code></td>
+                                <td>Una sola variable contiene varios datos</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Elemento</strong></td>
+                                <td>Cada valor dentro de una lista</td>
+                                <td><code>320</code>, <code>280</code>, <code>310</code></td>
+                                <td>Cada número representa un dato</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Índice</strong></td>
+                                <td>Posición que ocupa cada elemento</td>
+                                <td><code>ventas[1]</code></td>
+                                <td>Accede al segundo elemento de la lista</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Índice positivo</strong></td>
+                                <td>Cuenta desde el inicio</td>
+                                <td><code>ventas[0]</code></td>
+                                <td>Primer elemento</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Índice negativo</strong></td>
+                                <td>Cuenta desde el final</td>
+                                <td><code>ventas[-1]</code></td>
+                                <td>Último elemento</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rebanado / slicing</strong></td>
+                                <td>Extrae una parte de la lista</td>
+                                <td><code>ventas[0:3]</code></td>
+                                <td>Devuelve una sublista</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Paso</strong></td>
+                                <td>Salta elementos o cambia el recorrido</td>
+                                <td><code>ventas[::2]</code></td>
+                                <td>Toma elementos alternados</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 25px; margin-bottom: 10px;">Paso 1: Indexación en Listas</h3>
+                
+                
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tipo de índice</th>
+                                <th>Cómo cuenta</th>
+                                <th>Ejemplo</th>
+                                <th>Resultado</th>
+                                <th>Uso</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="3"><strong>Positivo</strong></td>
+                                <td>Desde el principio</td>
+                                <td><code>ventas[0]</code></td>
+                                <td>Primer elemento</td>
+                                <td>Cuando conozco la posición inicial</td>
+                            </tr>
+                            <tr>
+                                <td>Desde el principio</td>
+                                <td><code>ventas[1]</code></td>
+                                <td>Segundo elemento</td>
+                                <td>Acceso directo</td>
+                            </tr>
+                            <tr>
+                                <td>Desde el principio</td>
+                                <td><code>ventas[11]</code></td>
+                                <td>Último elemento si hay 12 datos</td>
+                                <td>Última posición positiva</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="3"><strong>Negativo</strong></td>
+                                <td>Desde el final</td>
+                                <td><code>ventas[-1]</code></td>
+                                <td>Último elemento</td>
+                                <td>Acceder al final rápido</td>
+                            </tr>
+                            <tr>
+                                <td>Desde el final</td>
+                                <td><code>ventas[-2]</code></td>
+                                <td>Penúltimo elemento</td>
+                                <td>Datos recientes</td>
+                            </tr>
+                            <tr>
+                                <td>Desde el final</td>
+                                <td><code>ventas[-3]</code></td>
+                                <td>Antepenúltimo elemento</td>
+                                <td>Últimos valores</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 25px; margin-bottom: 10px;">Paso 2: Rebanado / Slicing en Listas</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Notación</th>
+                                <th>Qué significa</th>
+                                <th>Ejemplo</th>
+                                <th>Resultado esperado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>lista[i:j]</code></td>
+                                <td>Desde <code>i</code> hasta antes de <code>j</code></td>
+                                <td><code>ventas[0:3]</code></td>
+                                <td>Primeros 3 elementos</td>
+                            </tr>
+                            <tr>
+                                <td><code>lista[:j]</code></td>
+                                <td>Desde el inicio hasta antes de <code>j</code></td>
+                                <td><code>ventas[:3]</code></td>
+                                <td>Primer trimestre</td>
+                            </tr>
+                            <tr>
+                                <td><code>lista[i:]</code></td>
+                                <td>Desde <code>i</code> hasta el final</td>
+                                <td><code>ventas[3:]</code></td>
+                                <td>Últimos 3 elementos</td>
+                            </tr>
+                            <tr>
+                                <td><code>lista[:]</code></td>
+                                <td>Desde el inicio hasta el final</td>
+                                <td><code>ventas[:]</code></td>
+                                <td>Copia completa</td>
+                            </tr>
+                            <tr>
+                                <td><code>lista[i:j:k]</code></td>
+                                <td>Desde <code>i</code> hasta antes de <code>j</code>, saltando de <code>k</code> en <code>k</code></td>
+                                <td><code>ventas[0:12:2]</code></td>
+                                <td>Elementos alternados</td>
+                            </tr>
+                            <tr>
+                                <td><code>lista[::-1]</code></td>
+                                <td>Recorre la lista al revés</td>
+                                <td><code>ventas[::-1]</code></td>
+                                <td>Lista invertida</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 25px; margin-bottom: 10px;">Paso 3: Aplicación Práctica (Lista de Ventas)</h3>
+                <div class="table-responsive">
+                    <table style="max-width: 650px;">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Qué extrae</th>
+                                <th>Resultado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>ventas[0]</code></td>
+                                <td>Enero</td>
+                                <td><code>320</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>ventas[1]</code></td>
+                                <td>Febrero</td>
+                                <td><code>280</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>ventas[2]</code></td>
+                                <td>Marzo</td>
+                                <td><code>310</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>ventas[-1]</code></td>
+                                <td>Diciembre</td>
+                                <td><code>330</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>ventas[-2]</code></td>
+                                <td>Noviembre</td>
+                                <td><code>300</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>ventas[-3]</code></td>
+                                <td>Octubre</td>
+                                <td><code>350</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>ventas[0:3]</code></td>
+                                <td>Enero a marzo</td>
+                                <td><code>[320, 280, 310]</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>ventas[3:6]</code></td>
+                                <td>Abril a junio</td>
+                                <td><code>[290, 340, 360]</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>ventas[6:9]</code></td>
+                                <td>Julio a septiembre</td>
+                                <td><code>[410, 390, 370]</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>ventas[9:12]</code></td>
+                                <td>Octubre a diciembre</td>
+                                <td><code>[350, 300, 330]</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 25px; margin-bottom: 10px;">Paso 4: Concatenación y Mutabilidad</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Concepto</th>
+                                <th>Qué significa</th>
+                                <th>Código de ejemplo</th>
+                                <th>Resultado</th>
+                                <th>Idea clave</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Concatenación</strong></td>
+                                <td>Unir listas en una sola</td>
+                                <td><code>[1, 2, 3] + [4, 5]</code></td>
+                                <td><code>[1, 2, 3, 4, 5]</code></td>
+                                <td><code>+</code> une listas, no suma números</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Orden en concatenación</strong></td>
+                                <td>Respeta el orden original</td>
+                                <td><code>[4, 5] + [1, 2, 3]</code></td>
+                                <td><code>[4, 5, 1, 2, 3]</code></td>
+                                <td>El orden cambia el resultado</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Repetición</strong></td>
+                                <td>Repite una lista varias veces</td>
+                                <td><code>[1, 2, 3] * 2</code></td>
+                                <td><code>[1, 2, 3, 1, 2, 3]</code></td>
+                                <td><code>*</code> duplica la secuencia</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mutabilidad</strong></td>
+                                <td>La lista puede cambiarse</td>
+                                <td><code>lista = [1, 2, 3]</code><br><code>lista[1] = 20</code></td>
+                                <td><code>[1, 20, 3]</code></td>
+                                <td>Se modifica la lista existente</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Reemplazo por índice</strong></td>
+                                <td>Cambiar un elemento puntual</td>
+                                <td><code>lista = [1, 2, 3]</code><br><code>lista[0] = 99</code></td>
+                                <td><code>[99, 2, 3]</code></td>
+                                <td>El índice indica qué valor se cambia</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+</section>
+
+            <section class="content-section">
+                <h2>Iteración y Ciclos (while)</h2>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 15px; margin-bottom: 10px;">Paso 1: Conceptos Generales</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Concepto</th>
+                                <th>Definición</th>
+                                <th>Para qué sirve</th>
+                                <th>Ejemplo / Idea clave</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Iteración</strong></td>
+                                <td>Repetición de instrucciones varias veces</td>
+                                <td>Automatizar tareas repetitivas</td>
+                                <td>Recorrer una lista elemento por elemento</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ciclo / Bucle</strong></td>
+                                <td>Estructura que permite repetir instrucciones</td>
+                                <td>Ejecutar un bloque varias veces</td>
+                                <td><code>while</code>, <code>for</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Iteración individual</strong></td>
+                                <td>Cada ejecución del bloque dentro del ciclo</td>
+                                <td>Procesar un dato por vez</td>
+                                <td>Una vuelta del <code>while</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Condición del ciclo</strong></td>
+                                <td>Expresión lógica que controla la repetición</td>
+                                <td>Decide si el ciclo continúa o termina</td>
+                                <td><code>i &lt; len(ventas)</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Contador / índice</strong></td>
+                                <td>Variable que cambia en cada vuelta</td>
+                                <td>Indica qué elemento usar</td>
+                                <td><code>i = i + 1</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Acumulador</strong></td>
+                                <td>Variable que guarda un total progresivo</td>
+                                <td>Sumar valores paso a paso</td>
+                                <td><code>suma_ventas = suma_ventas + ventas[i]</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 25px; margin-bottom: 10px;">Paso 2: Estructura y Función del Ciclo <code>while</code></h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Parte del código</th>
+                                <th>Rol</th>
+                                <th>Qué hace</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>i = 0</code></td>
+                                <td>Inicialización del índice</td>
+                                <td>Empieza en el primer elemento de la lista</td>
+                            </tr>
+                            <tr>
+                                <td><code>suma_ventas = 0</code></td>
+                                <td>Inicialización del acumulador</td>
+                                <td>Prepara una variable para guardar la suma total</td>
+                            </tr>
+                            <tr>
+                                <td><code>while i &lt; len(ventas):</code></td>
+                                <td>Condición del ciclo</td>
+                                <td>Repite mientras queden elementos por recorrer</td>
+                            </tr>
+                            <tr>
+                                <td><code>ventas[i]</code></td>
+                                <td>Acceso al elemento actual</td>
+                                <td>Toma el valor ubicado en la posición <code>i</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>suma_ventas = suma_ventas + ventas[i]</code></td>
+                                <td>Acumulación</td>
+                                <td>Agrega el valor actual al total</td>
+                            </tr>
+                            <tr>
+                                <td><code>i = i + 1</code></td>
+                                <td>Avance del índice</td>
+                                <td>Pasa al siguiente elemento</td>
+                            </tr>
+                            <tr>
+                                <td><code>media_ventas = suma_ventas / len(ventas)</code></td>
+                                <td>Cálculo final</td>
+                                <td>Calcula el promedio después del ciclo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 25px; margin-bottom: 10px;">Paso 3: Variables Importantes en un <code>while</code></h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Variable</th>
+                                <th>Tipo de rol</th>
+                                <th>Valor inicial</th>
+                                <th>Cómo cambia</th>
+                                <th>Para qué sirve</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>i</code></td>
+                                <td>Índice / contador</td>
+                                <td><code>0</code></td>
+                                <td>Aumenta de a 1</td>
+                                <td>Recorrer posiciones de la lista</td>
+                            </tr>
+                            <tr>
+                                <td><code>suma_ventas</code></td>
+                                <td>Acumulador</td>
+                                <td><code>0</code></td>
+                                <td>Suma cada venta</td>
+                                <td>Guardar el total acumulado</td>
+                            </tr>
+                            <tr>
+                                <td><code>ventas[i]</code></td>
+                                <td>Valor actual</td>
+                                <td>Depende de <code>i</code></td>
+                                <td>Cambia en cada iteración</td>
+                                <td>Representa el dato que se está procesando</td>
+                            </tr>
+                            <tr>
+                                <td><code>len(ventas)</code></td>
+                                <td>Longitud</td>
+                                <td>Cantidad total de elementos</td>
+                                <td>No cambia</td>
+                                <td>Define cuándo termina el ciclo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 25px; margin-bottom: 10px;">Paso 4: Comparación (Contador vs Acumulador)</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspecto</th>
+                                <th>Contador</th>
+                                <th>Acumulador</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Qué guarda</strong></td>
+                                <td>Cantidad de casos</td>
+                                <td>Suma total de valores</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cuánto suma</strong></td>
+                                <td>Siempre suma <code>1</code></td>
+                                <td>Suma un valor variable</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cuándo cambia</strong></td>
+                                <td>Cuando se cumple una condición</td>
+                                <td>En cada iteración o cuando corresponde</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ejemplo conceptual</strong></td>
+                                <td>Meses con ventas superiores a la media</td>
+                                <td>Total de ventas del año</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Código largo</strong></td>
+                                <td><code>conteo_meses = conteo_meses + 1</code></td>
+                                <td><code>suma_ventas = suma_ventas + ventas[i]</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Código abreviado</strong></td>
+                                <td><code>conteo_meses += 1</code></td>
+                                <td><code>suma_ventas += ventas[i]</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 25px; margin-bottom: 10px;">Paso 5: Ejemplo Práctico (Sumar Ventas con <code>while</code>)</h3>
+                <div class="table-responsive">
+                    <table style="max-width: 700px;">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Qué significa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>ventas = [320, 280, 310, 290]</code></td>
+                                <td>Lista con datos de ventas</td>
+                            </tr>
+                            <tr>
+                                <td><code>i = 0</code></td>
+                                <td>Se empieza desde el primer índice</td>
+                            </tr>
+                            <tr>
+                                <td><code>suma_ventas = 0</code></td>
+                                <td>La suma inicia vacía</td>
+                            </tr>
+                            <tr>
+                                <td><code>while i &lt; len(ventas):</code></td>
+                                <td>Repetir mientras <code>i</code> sea menor que la cantidad de datos</td>
+                            </tr>
+                            <tr>
+                                <td><code>suma_ventas = suma_ventas + ventas[i]</code></td>
+                                <td>Sumar la venta actual</td>
+                            </tr>
+                            <tr>
+                                <td><code>i = i + 1</code></td>
+                                <td>Avanzar al siguiente mes</td>
+                            </tr>
+                            <tr>
+                                <td><code>media_ventas = suma_ventas / len(ventas)</code></td>
+                                <td>Dividir la suma por la cantidad de ventas</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+</section>
+
+            <div class="theme-divider">
+                <h1>Tema 5</h1>
+            </div>
+
+            <section class="content-section">
+                <h2>Algoritmos y Búsqueda</h2>
+                <p><strong>Algoritmo:</strong> Serie de pasos claros y ordenados para resolver un problema.</p>
+                <p>En programación, usamos algoritmos todo el tiempo: para buscar datos, ordenarlos, filtrarlos, y más.</p>
+                <p>En el ejemplo anterior aplicamos un algoritmo de <strong>búsqueda</strong> para encontrar el valor más chico de una lista de números.</p>
+                
+                <p>Un buen algoritmo tiene las siguientes características:</p>
+                <ul>
+                    <li>Tiene <strong>instrucciones claras</strong>, sin ambigüedades.</li>
+                    <li>Se sigue en un <strong>orden lógico</strong> paso a paso.</li>
+                    <li>Siempre <strong>termina</strong> en algún momento (no se queda dando vueltas infinitamente).</li>
+                </ul>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 25px; margin-bottom: 10px;">Búsqueda Lineal — Concepto, Uso y Costo</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspecto</th>
+                                <th>Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Nombre del algoritmo</strong></td>
+                                <td>Búsqueda lineal (<em>linear search</em>)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Objetivo</strong></td>
+                                <td>Encontrar un valor dentro de una lista</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Valor buscado</strong></td>
+                                <td>Se llama <strong>clave</strong> o <em>key</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cómo trabaja</strong></td>
+                                <td>Recorre la lista desde el inicio hasta el final, comparando elemento por elemento</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tipo de recorrido</strong></td>
+                                <td>Secuencial, paso a paso, sin saltos</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sirve con listas ordenadas</strong></td>
+                                <td>Sí</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sirve con listas desordenadas</strong></td>
+                                <td>Sí</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ventaja</strong></td>
+                                <td>Es simple y funciona aunque la lista no esté ordenada</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Desventaja</strong></td>
+                                <td>Puede ser lento si la lista es muy grande</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Complejidad aproximada</strong></td>
+                                <td>$O(n)$, porque en el peor caso puede revisar todos los elementos</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ejemplo típico</strong></td>
+                                <td>Buscar todas las posiciones donde aparece una edad, precio o nombre</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+<h3 style="font-size: 16px; color: var(--primary-color); margin-top: 25px; margin-bottom: 10px;">Patrones de Búsqueda Lineal</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Patrón</th>
+                                <th>Qué busca</th>
+                                <th>Variable clave</th>
+                                <th>Resultado esperado</th>
+                                <th>Ejemplo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Buscar una aparición</strong></td>
+                                <td>Saber si un valor aparece al menos una vez</td>
+                                <td><code>encontrado = False</code></td>
+                                <td><code>True</code> o <code>False</code></td>
+                                <td>¿Aparece el precio 18?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Guardar una posición</strong></td>
+                                <td>Encontrar dónde aparece por primera vez</td>
+                                <td><code>posicion = -1</code></td>
+                                <td>Índice encontrado o <code>-1</code></td>
+                                <td>Primera posición de <code>23</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Guardar varias posiciones</strong></td>
+                                <td>Encontrar todas las apariciones</td>
+                                <td><code>posiciones = []</code></td>
+                                <td>Lista de índices</td>
+                                <td><code>23</code> aparece en <code>[1, 5]</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Buscar mínimo</strong></td>
+                                <td>Encontrar el valor más chico</td>
+                                <td><code>minimo</code> o <code>indice_menor</code></td>
+                                <td>Valor o posición del mínimo</td>
+                                <td>Precio más bajo</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Buscar máximo</strong></td>
+                                <td>Encontrar el valor más grande</td>
+                                <td><code>maximo</code> o <code>indice_mayor</code></td>
+                                <td>Valor o posición del máximo</td>
+                                <td>Venta más alta</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 35px; margin-bottom: 10px;">Ordenamiento por Selección — Cuadro Comparativo</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspecto</th>
+                                <th>Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Nombre del algoritmo</strong></td>
+                                <td>Ordenamiento por selección (<em>selection sort</em>)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Objetivo</strong></td>
+                                <td>Ordenar una lista siguiendo un criterio, por ejemplo de menor a mayor</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Idea principal</strong></td>
+                                <td>Buscar el menor elemento y ubicarlo en la posición correcta</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cómo trabaja</strong></td>
+                                <td>En cada vuelta selecciona el mínimo de la parte no ordenada</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Operación clave</strong></td>
+                                <td>Intercambiar valores usando una variable auxiliar (<code>aux</code>)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ciclo externo</strong></td>
+                                <td>Avanza posición por posición (<code>i</code>)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ciclo interno</strong></td>
+                                <td>Busca el menor desde la posición siguiente hasta el final (<code>j</code>)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cantidad de comparaciones</strong></td>
+                                <td>$(n-1) + (n-2) + \dots + 1 = \frac{n(n-1)}{2}$</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Complejidad</strong></td>
+                                <td>$O(n^2)$</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ventaja</strong></td>
+                                <td>Fácil de entender y programar</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Desventaja</strong></td>
+                                <td>Ineficiente para listas grandes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Uso conceptual</strong></td>
+                                <td>Entender cómo funciona el ordenamiento paso a paso</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 35px; margin-bottom: 10px;">Mediana, Ordenamiento y Búsqueda Binaria — Resumen Ordenado</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tema</th>
+                                <th>Idea principal</th>
+                                <th>Procedimiento / Regla</th>
+                                <th>Condición importante</th>
+                                <th>Complejidad / Clave</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Mediana</strong></td>
+                                <td>Es el valor central o típico de un conjunto de datos ordenados</td>
+                                <td>1) Ordenar la lista<br>2) Calcular la posición central<br>3) Obtener uno o dos valores centrales</td>
+                                <td>Los datos deben estar ordenados</td>
+                                <td>Sirve para representar el centro sin depender tanto de valores extremos</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mediana con cantidad impar</strong></td>
+                                <td>Hay un único valor central</td>
+                                <td>Posición: <code>n // 2</code></td>
+                                <td><code>n % 2 == 1</code></td>
+                                <td>Como los índices empiezan en 0, el centro queda en <code>n // 2</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mediana con cantidad par</strong></td>
+                                <td>Hay dos valores centrales</td>
+                                <td>Posiciones: <code>n // 2 - 1</code> y <code>n // 2</code><br>Mediana: <code>(valor_inferior + valor_superior) / 2</code></td>
+                                <td><code>n % 2 == 0</code></td>
+                                <td>Se promedian los dos valores del medio</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ordenamiento por selección</strong></td>
+                                <td>Ordena la lista buscando el menor valor restante y ubicándolo en su posición correcta</td>
+                                <td>Para cada posición <code>i</code>, busca el menor desde <code>i</code> hasta el final y lo intercambia</td>
+                                <td>Funciona aunque la lista esté desordenada</td>
+                                <td>Complejidad cuadrática: $O(n^2)$</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Intercambio de valores</strong></td>
+                                <td>Permite mover el menor valor encontrado a su lugar correcto</td>
+                                <td>Usar variable auxiliar:<br><code>aux = precios[i]</code><br><code>precios[i] = precios[indice_menor]</code><br><code>precios[indice_menor] = aux</code></td>
+                                <td>Necesario para no perder valores</td>
+                                <td>Se modifica la lista original</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+<h3 style="font-size: 16px; color: var(--primary-color); margin-top: 35px; margin-bottom: 10px;">Ciclo <code>for</code>, <code>range()</code> y Recorrido de Listas</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Concepto</th>
+                                <th>Qué es / para qué sirve</th>
+                                <th>Estructura / código</th>
+                                <th>Clave para no confundirse</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Ciclo <code>for</code></strong></td>
+                                <td>Repite instrucciones para cada elemento de una secuencia</td>
+                                <td><code>for ingreso in ingresos_mensuales:</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;print(ingreso)</code></td>
+                                <td>Recorre directamente los valores de la lista</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Variable del ciclo</strong></td>
+                                <td>Toma un valor distinto en cada iteración</td>
+                                <td><code>for ingreso in ingresos_mensuales:</code></td>
+                                <td><code>ingreso</code> vale primero <code>570</code>, luego <code>1200</code>, luego <code>590</code>, etc.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Recorrido por valores</strong></td>
+                                <td>Usa directamente cada elemento de la lista</td>
+                                <td><code>for ingreso in ingresos_mensuales:</code></td>
+                                <td>Útil si no necesitás saber la posición</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Recorrido por índices</strong></td>
+                                <td>Recorre posiciones de la lista</td>
+                                <td><code>for i in range(len(ingresos_mensuales)):</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;print(ingresos_mensuales[i])</code></td>
+                                <td>Útil si necesitás la posición <code>i</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong><code>range(b)</code></strong></td>
+                                <td>Genera enteros desde <code>0</code> hasta <code>b-1</code></td>
+                                <td><code>range(7)</code></td>
+                                <td>Produce <code>0, 1, 2, 3, 4, 5, 6</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong><code>range(a, b)</code></strong></td>
+                                <td>Genera enteros desde <code>a</code> hasta <code>b-1</code></td>
+                                <td><code>range(3, 7)</code></td>
+                                <td>Produce <code>3, 4, 5, 6</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong><code>range(a, b, paso)</code></strong></td>
+                                <td>Genera enteros saltando según el paso</td>
+                                <td><code>range(3, 7, 2)</code></td>
+                                <td>Produce <code>3, 5</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong><code>len(lista)</code></strong></td>
+                                <td>Devuelve la cantidad de elementos</td>
+                                <td><code>len(ingresos_mensuales)</code></td>
+                                <td>Si hay 12 datos, devuelve <code>12</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong><code>range(len(lista))</code></strong></td>
+                                <td>Genera todos los índices válidos</td>
+                                <td><code>range(len(lista))</code></td>
+                                <td>Si hay 12 datos, genera <code>0</code> a <code>11</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="image-container">
+                    <img src="image.png" alt="Esquema conceptual">
+                </div>
+ <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 35px; margin-bottom: 10px;">Cuartiles: Paso 1 - Medidas de Posición</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Concepto</th>
+                                <th>Qué representa</th>
+                                <th>Cómo se calcula</th>
+                                <th>Interpretación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Q1</strong></td>
+                                <td>Primer cuartil</td>
+                                <td>Mediana de la mitad inferior</td>
+                                <td>25% de los datos queda por debajo</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Q2</strong></td>
+                                <td>Segundo cuartil / mediana</td>
+                                <td>Mediana de todos los datos</td>
+                                <td>50% queda por debajo y 50% por encima</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Q3</strong></td>
+                                <td>Tercer cuartil</td>
+                                <td>Mediana de la mitad superior</td>
+                                <td>75% de los datos queda por debajo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 25px; margin-bottom: 10px;">Cuartiles: Paso 2 - Dispersión y Cálculo</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Concepto</th>
+                                <th>Qué representa</th>
+                                <th>Cómo se calcula</th>
+                                <th>Interpretación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Rango intercuartílico</strong></td>
+                                <td>Dispersión central</td>
+                                <td><code>Q3 - Q1</code></td>
+                                <td>Mide la amplitud del 50% central</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Algoritmo general</strong></td>
+                                <td>Procedimiento para calcular cuartiles</td>
+                                <td>1) Copiar datos<br>2) Ordenar<br>3) Calcular Q2<br>4) Separar mitades<br>5) Calcular Q1 y Q3</td>
+                                <td>Permite analizar concentración, dispersión y posibles outliers</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ejemplo dado</strong></td>
+                                <td><code>Q1 = 575</code>, <code>Q2 = 605</code>, <code>Q3 = 640</code></td>
+                                <td><code>Q3 - Q1 = 65</code></td>
+                                <td>El 50% central está entre 575 y 640</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 25px; margin-bottom: 10px;">Cuartiles: Paso 3 - Simetría y Asimetría</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Concepto</th>
+                                <th>Qué representa</th>
+                                <th>Cómo se calcula</th>
+                                <th>Interpretación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Asimetría derecha</strong></td>
+                                <td>Cola hacia valores altos</td>
+                                <td><code>Q3 - Q2 &gt; Q2 - Q1</code></td>
+                                <td>Hay valores altos más alejados del centro</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Asimetría izquierda</strong></td>
+                                <td>Cola hacia valores bajos</td>
+                                <td><code>Q2 - Q1 &gt; Q3 - Q2</code></td>
+                                <td>Hay valores bajos más alejados del centro</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Simetría</strong></td>
+                                <td>Distribución equilibrada</td>
+                                <td><code>Q2 - Q1 &asymp; Q3 - Q2</code></td>
+                                <td>Los datos se reparten de forma pareja alrededor del centro</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 40px; margin-bottom: 10px;">Métodos de Listas en Python — Cuadro Comparativo</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Método / operación</th>
+                                <th>Qué hace</th>
+                                <th>¿Modifica la lista original?</th>
+                                <th>¿Devuelve lista nueva?</th>
+                                <th>Ejemplo</th>
+                                <th>Resultado / efecto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>lista.index(x)</code></td>
+                                <td>Busca la primera aparición de <code>x</code></td>
+                                <td style="text-align: center;">❌ No</td>
+                                <td style="text-align: center;">❌ No</td>
+                                <td><code>[10, 20, 10].index(10)</code></td>
+                                <td>Devuelve <code>0</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>lista.append(x)</code></td>
+                                <td>Agrega <code>x</code> al final</td>
+                                <td style="text-align: center;">✔ Sí</td>
+                                <td style="text-align: center;">❌ No</td>
+                                <td><code>lista.append(5)</code></td>
+                                <td>Agrega <code>5</code> al final</td>
+                            </tr>
+                            <tr>
+                                <td><code>lista.sort()</code></td>
+                                <td>Ordena de menor a mayor</td>
+                                <td style="text-align: center;">✔ Sí</td>
+                                <td style="text-align: center;">❌ No</td>
+                                <td><code>lista.sort()</code></td>
+                                <td>La lista queda ordenada</td>
+                            </tr>
+                            <tr>
+                                <td><code>lista.reverse()</code></td>
+                                <td>Invierte el orden</td>
+                                <td style="text-align: center;">✔ Sí</td>
+                                <td style="text-align: center;">❌ No</td>
+                                <td><code>lista.reverse()</code></td>
+                                <td>Cambia el orden original</td>
+                            </tr>
+                            <tr>
+                                <td><code>lista.extend(otra_lista)</code></td>
+                                <td>Agrega varios elementos al final</td>
+                                <td style="text-align: center;">✔ Sí</td>
+                                <td style="text-align: center;">❌ No</td>
+                                <td><code>lista.extend([4,5])</code></td>
+                                <td>Une elementos a la lista</td>
+                            </tr>
+                            <tr>
+                                <td><code>lista.insert(i, x)</code></td>
+                                <td>Inserta <code>x</code> en posición <code>i</code></td>
+                                <td style="text-align: center;">✔ Sí</td>
+                                <td style="text-align: center;">❌ No</td>
+                                <td><code>lista.insert(1, 99)</code></td>
+                                <td>Inserta <code>99</code> en índice <code>1</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>lista.remove(x)</code></td>
+                                <td>Elimina la primera aparición de <code>x</code></td>
+                                <td style="text-align: center;">✔ Sí</td>
+                                <td style="text-align: center;">❌ No</td>
+                                <td><code>lista.remove(20)</code></td>
+                                <td>Borra el primer <code>20</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>lista.copy()</code></td>
+                                <td>Copia la lista</td>
+                                <td style="text-align: center;">❌ No</td>
+                                <td style="text-align: center;">✔ Sí</td>
+                                <td><code>copia = lista.copy()</code></td>
+                                <td>Crea otra lista independiente</td>
+                            </tr>
+                            <tr>
+                                <td><code>lista + [x]</code></td>
+                                <td>Concatena listas</td>
+                                <td style="text-align: center;">❌ No</td>
+                                <td style="text-align: center;">✔ Sí</td>
+                                <td><code>nueva = lista + [5]</code></td>
+                                <td>Crea una lista nueva</td>
+                            </tr>
+                            <tr>
+                                <td><code>lista[1:]</code></td>
+                                <td>Rebanado / slicing</td>
+                                <td style="text-align: center;">❌ No</td>
+                                <td style="text-align: center;">✔ Sí</td>
+                                <td><code>nueva = lista[1:]</code></td>
+                                <td>Crea sublista nueva</td>
+                            </tr>
+                            <tr>
+                                <td><code>lista.clear()</code></td>
+                                <td>Elimina todos los elementos de una lista</td>
+                                <td style="text-align: center;">✔ Sí</td>
+                                <td style="text-align: center;">❌ No</td>
+                                <td></td>
+                                <td>Queda vacía la lista</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
