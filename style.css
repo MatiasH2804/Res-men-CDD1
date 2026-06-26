@@ -1,15 +1,15 @@
-/* Paleta de colores: Marrones claros y neutros académicos */
+/* Paleta visual original con texto unificado en negro. */
 :root {
     --bg-color: #fcfbfa;
     --container-bg: #ffffff;
-    --text-main: #3e2723;
-    --text-muted: #5d4037;
+    --text-main: #000000;
     --primary-color: #795548;
     --primary-light: #d7ccc8;
     --accent-color: #8d6e63;
     --code-bg: #f5f2eb;
-    --code-color: #5d4037;
     --border-color: #e0dcd5;
+    --row-highlight: rgba(245, 242, 235, 0.4);
+    --row-hover: rgba(215, 204, 200, 0.2);
 }
 
 * {
@@ -27,24 +27,23 @@ body {
 }
 
 .container {
-    max-width: 900px;
+    width: min(100%, 900px);
     margin: 0 auto;
     background: var(--container-bg);
     padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 header {
-    border-bottom: 2px solid var(--primary-light);
-    padding-bottom: 20px;
     margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--primary-light);
 }
 
 header h1 {
     font-size: 24px;
-    color: var(--primary-color);
     font-weight: 700;
 }
 
@@ -52,99 +51,234 @@ header h1 {
     margin-bottom: 40px;
 }
 
-h2 {
-    font-size: 18px;
-    color: var(--primary-color);
-    margin-bottom: 15px;
-    border-left: 4px solid var(--accent-color);
-    padding-left: 10px;
-}
-
-p {
-    font-size: 14px;
-    margin-bottom: 15px;
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+blockquote,
+table,
+th,
+td,
+strong,
+code,
+pre,
+pre code,
+.MathJax {
     color: var(--text-main);
 }
 
+.MathJax svg {
+    color: var(--text-main);
+}
+
+h2 {
+    margin-bottom: 15px;
+    padding-left: 10px;
+    border-left: 4px solid var(--accent-color);
+    font-size: 18px;
+}
+
+h3,
+.subsection-title {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+h4,
+.detail-title {
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+ul,
+ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.compact-list {
+    margin-bottom: 0;
+}
+
 strong {
-    color: var(--primary-color);
     font-weight: 600;
 }
 
-/* Código en línea */
 code {
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    background-color: var(--code-bg);
-    color: var(--code-color);
     padding: 2px 6px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 4px;
+    background-color: var(--code-bg);
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
     font-size: 13px;
-    border: 1px solid rgba(0,0,0,0.05);
 }
 
-/* Tablas */
+pre {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 15px;
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--code-bg);
+}
+
+pre code {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+    font-size: 13px;
+}
+
 .table-responsive {
     width: 100%;
-    overflow-x: auto;
     margin-top: 20px;
     margin-bottom: 20px;
+    overflow-x: auto;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 14px;
     text-align: left;
+    font-size: 14px;
 }
 
-th, td {
+.table-max-500 { max-width: 500px; }
+.table-max-600 { max-width: 600px; }
+.table-max-650 { max-width: 650px; }
+.table-max-700 { max-width: 700px; }
+.table-max-800 { max-width: 800px; }
+
+th,
+td {
     padding: 12px 15px;
     border-bottom: 1px solid var(--border-color);
 }
 
 th {
-    background-color: var(--code-bg);
-    color: var(--primary-color);
-    font-weight: 600;
     border-bottom: 2px solid var(--primary-light);
+    background-color: var(--code-bg);
+    font-weight: 600;
 }
 
+.w-25 { width: 25%; }
+.w-40 { width: 40%; }
+.w-60 { width: 60%; }
+.text-center { text-align: center; }
+.highlight-row { background-color: var(--primary-light); }
+
 tbody tr:nth-child(even) {
-    background-color: rgba(245, 242, 235, 0.4);
+    background-color: var(--row-highlight);
 }
 
 tbody tr:hover {
-    background-color: rgba(215, 204, 200, 0.2);
-}
-/* Bloques de código estructurados (<pre>) */
-pre {
-    background-color: var(--code-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    padding: 15px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    overflow-x: auto;
+    background-color: var(--row-hover);
 }
 
-pre code {
-    background-color: transparent;
-    padding: 0;
-    border-radius: 0;
-    border: none;
-    font-size: 13px;
-    color: var(--text-muted);
+.image-container {
+    margin-top: 25px;
+    margin-bottom: 20px;
 }
-/* Separador de Tema Principal */
+
+.image-container img {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+}
+
 .theme-divider {
-    margin: 50px 0 30px 0;
+    margin: 50px 0 30px;
     padding-bottom: 10px;
     border-bottom: 3px solid var(--primary-color);
 }
 
 .theme-divider h1 {
     font-size: 28px;
-    color: var(--primary-color);
-    text-transform: uppercase;
     letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+    body {
+        padding: 32px;
+    }
+
+    .container {
+        width: min(100%, 1120px);
+        padding: 48px 56px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
+
+    h3,
+    .subsection-title {
+        font-size: 18px;
+    }
+
+    h4,
+    .detail-title {
+        font-size: 16px;
+    }
+
+    p,
+    li,
+    table {
+        font-size: 15px;
+    }
+
+    code,
+    pre code {
+        font-size: 14px;
+    }
+
+    .theme-divider h1 {
+        font-size: 32px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        width: min(100%, 1240px);
+        padding: 56px 72px;
+    }
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 12px;
+    }
+
+    .container {
+        padding: 24px 18px;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .theme-divider h1 {
+        font-size: 24px;
+    }
+
+    th,
+    td {
+        padding: 10px 12px;
+    }
 }
