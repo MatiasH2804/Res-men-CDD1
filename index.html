@@ -1866,6 +1866,637 @@ print("IQR:", IQR)
 print("Límite inferior:", limite_inferior)
 print("Límite superior:", limite_superior)
 print("Outliers:", outliers)</code></pre>
+</section>
+
+            <div class="theme-divider">
+                <h1>Tema 6</h1>
+            </div>
+
+            <section class="content-section">
+                <h2>Funciones, Parámetros y Mutabilidad</h2>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 15px; margin-bottom: 10px;">1. Funciones y Reutilización</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Concepto</th>
+                                <th>Definición</th>
+                                <th>Ejemplo</th>
+                                <th>Ventaja</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Función que usa otra función</strong></td>
+                                <td>Una función puede llamar a otra previamente definida.</td>
+                                <td><code>calcular_cuartiles()</code> usa <code>calcular_mediana()</code>.</td>
+                                <td>Reutiliza código y evita repetir lógica.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Reutilización de código</strong></td>
+                                <td>Resolver una tarea compleja usando funciones más pequeñas.</td>
+                                <td>Calcular Q1 y Q3 reutilizando la función de mediana.</td>
+                                <td>Código más corto y ordenado.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 30px; margin-bottom: 10px;">2. Parámetros y Argumentos</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Concepto</th>
+                                <th>Definición</th>
+                                <th>Ejemplo</th>
+                                <th>Ventaja / Característica</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Parámetro</strong></td>
+                                <td>Variable que aparece en la definición de la función.</td>
+                                <td><code>def calcular_cuartiles(lista):</code></td>
+                                <td>Permite que la función reciba datos.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Argumento</strong></td>
+                                <td>Valor real que se envía al llamar la función.</td>
+                                <td><code>calcular_cuartiles(datos)</code></td>
+                                <td>Es la información que usa la función.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Parámetro obligatorio</strong></td>
+                                <td>Debe recibir un valor al llamar la función.</td>
+                                <td><code>lista</code></td>
+                                <td>La función no puede ejecutarse sin él.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Parámetro opcional</strong></td>
+                                <td>Tiene un valor por defecto.</td>
+                                <td><code>redondear=False</code></td>
+                                <td>Puede omitirse al llamar la función.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Valor por defecto</strong></td>
+                                <td>Valor usado automáticamente si no se especifica otro.</td>
+                                <td><code>False</code> en <code>redondear=False</code></td>
+                                <td>Hace la función más flexible.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 style="font-size: 15px; color: var(--text-main); margin-top: 20px;">Comparación Directa: Parámetros vs Argumentos</h4>
+                <div class="table-responsive">
+                    <table style="max-width: 600px;">
+                        <thead>
+                            <tr>
+                                <th>Elemento</th>
+                                <th>Dónde aparece</th>
+                                <th>Ejemplo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Parámetro</strong></td>
+                                <td>En la definición de la función</td>
+                                <td><code>def calcular_cuartiles(lista, redondear=False)</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Argumento</strong></td>
+                                <td>En la llamada a la función</td>
+                                <td><code>calcular_cuartiles(datos, True)</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 35px; margin-bottom: 10px;">3. Mutabilidad y Paso de Datos</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Concepto</th>
+                                <th>Qué ocurre</th>
+                                <th>¿Se modifica el valor original?</th>
+                                <th>Ejemplo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Valores simples</strong> (<code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code>)</td>
+                                <td>La función recibe una copia del valor.</td>
+                                <td>No. Los cambios quedan solo dentro de la función.</td>
+                                <td><code>edad = 20</code> &rarr; cambiar <code>edad</code> dentro de la función no afecta la variable original.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Listas</strong> (<code>list</code>)</td>
+                                <td>La función recibe una referencia a la misma lista en memoria.</td>
+                                <td>Sí. Los cambios dentro de la función también se ven afuera.</td>
+                                <td><code>numeros = [1,2,3]</code> &rarr; si se modifica un elemento dentro de la función, la lista original cambia.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Referencia compartida</strong></td>
+                                <td>Dos variables apuntan a la misma lista.</td>
+                                <td>Sí. Modificar una modifica la otra.</td>
+                                <td><code>b = a</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Copia de una lista</strong></td>
+                                <td>Se crea una nueva lista independiente usando <code>.copy()</code> o <code>[:]</code>.</td>
+                                <td>No. Los cambios afectan solo a la copia.</td>
+                                <td><code>copia = numeros.copy()</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Uso recomendado</strong></td>
+                                <td>Copiar la lista cuando no se desea alterar los datos originales.</td>
+                                <td>Evita efectos inesperados.</td>
+                                <td><code>funcion(lista.copy())</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+<h3 style="font-size: 16px; color: var(--primary-color); margin-top: 40px; margin-bottom: 10px;">4. Funciones Integradas Básicas</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Función integrada</th>
+                                <th>¿Para qué sirve?</th>
+                                <th>Sintaxis básica</th>
+                                <th>Ejemplo</th>
+                                <th>Resultado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>print()</code></td>
+                                <td>Mostrar información en pantalla.</td>
+                                <td><code>print(valor)</code></td>
+                                <td><code>print("Hola")</code></td>
+                                <td><code>Hola</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>len()</code></td>
+                                <td>Obtener la cantidad de elementos.</td>
+                                <td><code>len(objeto)</code></td>
+                                <td><code>len([1,2,3])</code></td>
+                                <td><code>3</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>round()</code></td>
+                                <td>Redondear números.</td>
+                                <td><code>round(numero, decimales)</code></td>
+                                <td><code>round(3.14159, 2)</code></td>
+                                <td><code>3.14</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>sum()</code></td>
+                                <td>Sumar todos los elementos.</td>
+                                <td><code>sum(lista)</code></td>
+                                <td><code>sum([1,2,3])</code></td>
+                                <td><code>6</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>max()</code></td>
+                                <td>Obtener el mayor valor.</td>
+                                <td><code>max(lista)</code></td>
+                                <td><code>max([5,8,2])</code></td>
+                                <td><code>8</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>min()</code></td>
+                                <td>Obtener el menor valor.</td>
+                                <td><code>min(lista)</code></td>
+                                <td><code>min([5,8,2])</code></td>
+                                <td><code>2</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>sorted()</code></td>
+                                <td>Crear una lista ordenada.</td>
+                                <td><code>sorted(lista)</code></td>
+                                <td><code>sorted([3,1,2])</code></td>
+                                <td><code>[1,2,3]</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>type()</code></td>
+                                <td>Mostrar el tipo de dato.</td>
+                                <td><code>type(valor)</code></td>
+                                <td><code>type(3.5)</code></td>
+                                <td><code>float</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>list()</code></td>
+                                <td>Convertir a lista.</td>
+                                <td><code>list(secuencia)</code></td>
+                                <td><code>list("abc")</code></td>
+                                <td><code>['a','b','c']</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>range()</code></td>
+                                <td>Generar secuencias de enteros.</td>
+                                <td><code>range(i,j,k)</code></td>
+                                <td><code>list(range(1,6))</code></td>
+                                <td><code>[1,2,3,4,5]</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 style="font-size: 15px; color: var(--text-main); margin-top: 20px;">Parámetros de <code>round()</code></h4>
+                <div class="table-responsive">
+                    <table style="max-width: 700px;">
+                        <thead>
+                            <tr>
+                                <th>Parámetro</th>
+                                <th>Tipo</th>
+                                <th>Obligatorio</th>
+                                <th>Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>number</code></td>
+                                <td>Número</td>
+                                <td>Sí</td>
+                                <td>Valor que se desea redondear.</td>
+                            </tr>
+                            <tr>
+                                <td><code>ndigits</code></td>
+                                <td>Entero</td>
+                                <td>No</td>
+                                <td>Cantidad de decimales. Por defecto vale <code>None</code>.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 style="font-size: 15px; color: var(--text-main); margin-top: 20px;">Casos comunes de <code>round()</code></h4>
+                <div class="table-responsive">
+                    <table style="max-width: 700px;">
+                        <thead>
+                            <tr>
+                                <th>Expresión</th>
+                                <th>Resultado</th>
+                                <th>Explicación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>round(3.14159, 2)</code></td>
+                                <td><code>3.14</code></td>
+                                <td>Redondea a 2 decimales.</td>
+                            </tr>
+                            <tr>
+                                <td><code>round(3.14159, 3)</code></td>
+                                <td><code>3.142</code></td>
+                                <td>Redondea a 3 decimales.</td>
+                            </tr>
+                            <tr>
+                                <td><code>round(3.14159)</code></td>
+                                <td><code>3</code></td>
+                                <td>Usa <code>ndigits=None</code>, devuelve el entero más cercano.</td>
+                            </tr>
+                            <tr>
+                                <td><code>round(8.7)</code></td>
+                                <td><code>9</code></td>
+                                <td>Redondea al entero más cercano.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 40px; margin-bottom: 10px;">5. Alcance de Variables (Scope)</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Concepto</th>
+                                <th>Definición</th>
+                                <th>Dónde se define</th>
+                                <th>Se puede usar fuera de la función</th>
+                                <th>Ejemplo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Variable local</strong></td>
+                                <td>Existe solo dentro de una función.</td>
+                                <td>Dentro de la función.</td>
+                                <td style="text-align: center;">No.</td>
+                                <td><code>impuesto</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Variable global</strong></td>
+                                <td>Existe en todo el programa.</td>
+                                <td>Fuera de cualquier función.</td>
+                                <td style="text-align: center;">Sí.</td>
+                                <td><code>tasa</code>, <code>precio</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Parámetro</strong></td>
+                                <td>Es una variable local que recibe valores al llamar la función.</td>
+                                <td>Entre paréntesis en la definición.</td>
+                                <td style="text-align: center;">No.</td>
+                                <td><code>precio_base</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Alcance (scope)</strong></td>
+                                <td>Zona del programa donde una variable puede utilizarse.</td>
+                                <td>Depende de dónde se define.</td>
+                                <td style="text-align: center;">Depende del tipo de variable.</td>
+                                <td>Local o global.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 style="font-size: 15px; color: var(--text-main); margin-top: 20px;">Cómo identificarlas rápidamente</h4>
+                <div class="table-responsive">
+                    <table style="max-width: 600px;">
+                        <thead>
+                            <tr>
+                                <th>Si la variable...</th>
+                                <th>Entonces es...</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Está definida dentro de una función.</td>
+                                <td><strong>Local</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Es un parámetro de una función.</td>
+                                <td><strong>Local</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Está definida fuera de cualquier función.</td>
+                                <td><strong>Global</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Solo puede usarse dentro de la función donde nació.</td>
+                                <td><strong>Local</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Puede usarse en varias funciones y en el programa principal.</td>
+                                <td><strong>Global</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 style="font-size: 15px; color: var(--text-main); margin-top: 20px;">Buenas prácticas</h4>
+                <div class="table-responsive">
+                    <table style="max-width: 800px;">
+                        <thead>
+                            <tr>
+                                <th>Recomendación</th>
+                                <th>Motivo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>No usar el mismo nombre para variables locales y globales.</td>
+                                <td>Evita confusiones y errores.</td>
+                            </tr>
+                            <tr>
+                                <td>Preferir argumentos antes que variables globales.</td>
+                                <td>Hace las funciones más reutilizables.</td>
+                            </tr>
+                            <tr>
+                                <td>Usar <code>return</code> para devolver resultados.</td>
+                                <td>Evita depender de variables globales.</td>
+                            </tr>
+                            <tr>
+                                <td>Mantener las variables locales cuando sea posible.</td>
+                                <td>Reduce efectos inesperados en el programa.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 40px; margin-bottom: 10px;">6. Errores Comunes al Trabajar con Funciones</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Error común</th>
+                                <th>Ejemplo incorrecto</th>
+                                <th>Por qué está mal</th>
+                                <th>Forma correcta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Olvidar <code>def</code></strong></td>
+                                <td><code>calcular_media(lista):</code></td>
+                                <td>Python no reconoce que se está definiendo una función.</td>
+                                <td><code>def calcular_media(lista):</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Olvidar los paréntesis</strong></td>
+                                <td><code>def calcular_media:</code></td>
+                                <td>Toda función debe tener paréntesis, aunque no reciba parámetros.</td>
+                                <td><code>def calcular_media():</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Olvidar los dos puntos <code>:</code></strong></td>
+                                <td><code>def calcular_media(lista)</code></td>
+                                <td>La línea de definición debe terminar con <code>:</code>.</td>
+                                <td><code>def calcular_media(lista):</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>No indentar el cuerpo</strong></td>
+                                <td><code>def calcular_media(lista):</code><br><code>media = sum(lista)/len(lista)</code></td>
+                                <td>El cuerpo de la función debe estar indentado.</td>
+                                <td><code>def calcular_media(lista):</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;media = sum(lista)/len(lista)</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Olvidar <code>return</code></strong></td>
+                                <td><code>def calcular_media(lista):</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;media = sum(lista)/len(lista)</code></td>
+                                <td>La función calcula algo, pero no devuelve el resultado.</td>
+                                <td><code>def calcular_media(lista):</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;return sum(lista)/len(lista)</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Escribir mal el nombre de una función integrada</strong></td>
+                                <td><code>leng(lista)</code></td>
+                                <td>La función no existe con ese nombre.</td>
+                                <td><code>len(lista)</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Usar argumentos en orden incorrecto</strong></td>
+                                <td><code>round(2, 3.14159)</code></td>
+                                <td>El primer argumento debe ser el número a redondear.</td>
+                                <td><code>round(3.14159, 2)</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pasar un tipo de dato incorrecto</strong></td>
+                                <td><code>round("3.14159", 2)</code></td>
+                                <td><code>round()</code> necesita un número, no un texto.</td>
+                                <td><code>round(3.14159, 2)</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Usar <code>sort()</code> como si devolviera una lista</strong></td>
+                                <td><code>ordenada = lista.sort()</code></td>
+                                <td><code>sort()</code> modifica la lista original y devuelve <code>None</code>.</td>
+                                <td><code>lista.sort()</code><br>o<br><code>ordenada = sorted(lista)</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Confundir <code>print</code> con <code>return</code></strong></td>
+                                <td><code>print(resultado)</code> dentro de la función</td>
+                                <td><code>print()</code> solo muestra; no devuelve un valor reutilizable.</td>
+                                <td><code>return resultado</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <div class="theme-divider">
+                <h1>Tema 7</h1>
+            </div>
+
+            <section class="content-section">
+                <h2>Población y Muestra</h2>
+                
+                <p><strong>Población:</strong> Conjunto completo de unidades experimentales. Uno de los objetivos principales de Ciencia de Datos es dar respuesta a preguntas de interés en una población.</p>
+                
+                <p><strong>Muestra:</strong> Subconjunto de la población en que se llevará a cabo la investigación con el fin posterior de <strong>generalizar</strong> los hallazgos.</p>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 30px; margin-bottom: 10px;">1. Representatividad, Sesgo y Muestreo</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Concepto</th>
+                                <th>Definición</th>
+                                <th>Característica principal</th>
+                                <th>Ejemplo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Población</strong></td>
+                                <td>Conjunto total de individuos o elementos que se desea estudiar.</td>
+                                <td>Contiene todos los casos de interés.</td>
+                                <td>Todos los estudiantes de una universidad.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Muestra</strong></td>
+                                <td>Subconjunto de la población utilizado para realizar el estudio.</td>
+                                <td>Debe representar a la población.</td>
+                                <td>500 estudiantes seleccionados para una encuesta.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Representatividad</strong></td>
+                                <td>Grado en que la muestra refleja las características de la población.</td>
+                                <td>Permite generalizar conclusiones.</td>
+                                <td>Una muestra con proporciones similares de edad, sexo y carrera que la población.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Muestreo</strong></td>
+                                <td>Proceso de selección de una muestra.</td>
+                                <td>Determina qué individuos serán estudiados.</td>
+                                <td>Elegir 100 hogares para una encuesta.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sesgo</strong></td>
+                                <td>Error sistemático introducido durante la selección de la muestra.</td>
+                                <td>Produce resultados poco confiables.</td>
+                                <td>Encuestar solo a estudiantes de primer año para representar toda la universidad.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Muestreo aleatorio simple</strong></td>
+                                <td>Método donde cada individuo tiene la misma probabilidad de ser elegido.</td>
+                                <td>Reduce el sesgo.</td>
+                                <td>Sortear estudiantes usando números al azar.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Selección independiente</strong></td>
+                                <td>La elección de un individuo no afecta la de otro.</td>
+                                <td>Favorece la aleatoriedad.</td>
+                                <td>Cada persona participa en un sorteo independiente.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 35px; margin-bottom: 10px;">2. Comparación: Muestra Representativa vs. Muestra Sesgada</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspecto</th>
+                                <th>Muestra representativa</th>
+                                <th>Muestra sesgada</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Refleja a la población</strong></td>
+                                <td>Sí</td>
+                                <td>No necesariamente</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Permite generalizar resultados</strong></td>
+                                <td>Sí</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Riesgo de error</strong></td>
+                                <td>Menor</td>
+                                <td>Mayor</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Confiabilidad de las conclusiones</strong></td>
+                                <td>Alta</td>
+                                <td>Baja</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ejemplo</strong></td>
+                                <td>Selección aleatoria de toda la universidad</td>
+                                <td>Encuestar solo a alumnos de Ingeniería</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="font-size: 16px; color: var(--primary-color); margin-top: 35px; margin-bottom: 10px;">3. Ideas Clave</h3>
+                <div class="table-responsive">
+                    <table style="max-width: 800px;">
+                        <thead>
+                            <tr>
+                                <th>Concepto</th>
+                                <th>Recordatorio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Representatividad</strong></td>
+                                <td>La muestra debe parecerse a la población.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Aleatoriedad</strong></td>
+                                <td>Cada individuo debe tener la misma probabilidad de ser elegido.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sesgo</strong></td>
+                                <td>Debe minimizarse porque distorsiona los resultados.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Muestreo aleatorio simple</strong></td>
+                                <td>Es el método más utilizado para reducir sesgos.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Importante</strong></td>
+                                <td>Una muestra aleatoria puede no resultar representativa por azar, pero sigue siendo el método más confiable disponible.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
         </main>
     </div>
